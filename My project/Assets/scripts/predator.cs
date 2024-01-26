@@ -11,7 +11,7 @@ public class predator : MonoBehaviour
         Animator anim; //Добавляем ссылку на аниматор
         Rigidbody rb; //ссылка на Rigidbody
         Vector3 direction; //Направление движения
-        protected GameObject player;
+        [SerializeField] GameObject player;
         float distan;
     void Start()
         {
@@ -19,7 +19,7 @@ public class predator : MonoBehaviour
           kick.Add("box");
           anim = GetComponent<Animator>();
           rb = GetComponent<Rigidbody>();
-          player = FindObjectOfType<Rigidbody>().gameObject; //Находим игрока
+          //player = FindObjectOfType<Rigidbody>().gameObject; //Находим игрока
         
         }
 
@@ -41,8 +41,12 @@ public class predator : MonoBehaviour
             else
             {
                 anim.SetBool("run", false);
-                string k = kick[Random.Range(0, kick.Count)];
-                anim.SetTrigger(k);
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("stend")) {
+                    string k = kick[Random.Range(0, kick.Count)];
+                    anim.SetTrigger(k);
+
+                }
+
 
 
             }
@@ -52,16 +56,6 @@ public class predator : MonoBehaviour
 
         
         
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetTrigger("chappy" );
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            anim.SetTrigger("box");
-        }
 
 
     }
