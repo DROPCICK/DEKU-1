@@ -44,7 +44,7 @@ public class predator : MonoBehaviour
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("stend")) {
                     string k = kick[Random.Range(0, kick.Count)];
                     anim.SetTrigger(k);
-
+                    player.GetComponent< PlayerController>().ChangeHealth(-20);
                 }
 
 
