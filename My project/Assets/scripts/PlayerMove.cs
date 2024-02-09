@@ -4,22 +4,14 @@ using UnityEngine;
 using  UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
-    float time = 0;
     [SerializeField] GameObject GameOver;
     [SerializeField] GameObject particle; // добавляем ссылку на эффект взрыва
     [SerializeField] Text TimeText;
     [SerializeField] Text ScoreText;
-    [SerializeField] int crystal = 0;
     [SerializeField] CharacterController controller;
     [SerializeField] float speed = 5f;
-    [SerializeField] float jumpForce = 200f;
-    [SerializeField] float gravity = 200f;
-    bool slide;
 
     Vector3 direction;
-    float x = 133.6493f;
-    float y = 1.000002f;
-    float z = 568.4621f;
 
     // Start is called before the first frame update
     void Start()
@@ -50,15 +42,5 @@ public class PlayerMove : MonoBehaviour
         }
         direction = transform.TransformDirection(direction) * speed;
         controller.Move(direction * Time.deltaTime);
-
-        ////if (crystal < 3) //где 5 - это количество кристаллов для победы. Его можно поменять на любое значение
-        ////{
-        ////    time += Time.deltaTime;
-        ////    TimeText.text = time.ToString();
-        ////}
-
-
     }
-
-
 }       
