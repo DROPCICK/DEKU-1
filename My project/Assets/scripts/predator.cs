@@ -99,7 +99,7 @@ public class predator : MonoBehaviour
 
                     if (Random.Range(1, 10) > 8)
                     {
-                        ccTarget.Move(transform.forward * 2);
+                        ccTarget.Move(transform.forward * 5);
                         //print("otskok");
                     }
                 }
@@ -114,7 +114,7 @@ public class predator : MonoBehaviour
             if (oldPosition != newPosition)
             {   
                 anim.SetBool("run", true);
-                //transform.Rotate(new Vector3(0, 30, 0));
+                //transform.Rotate(new Vector3(0, 100, 0));
             }
 
             patrolTimer += Time.deltaTime;
